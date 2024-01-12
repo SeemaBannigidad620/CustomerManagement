@@ -56,7 +56,7 @@ public class CustomerServiceTest {
 
     @Test
     void createCustomer() {
-        Customer savedCustomer = customerService.createCustomer(customer).getBody();
+        Customer savedCustomer = (Customer) customerService.createCustomer(customer).getBody();
         assertEquals(savedCustomer, customer);
     }
 
