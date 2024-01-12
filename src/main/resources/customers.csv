@@ -1,0 +1,8 @@
+customerId,name,email,phone,address,companyName,industryType,customerStatus,accountManager,createdDate,lastModifiedDate
+1,John Doe,john.doe@example.com,9606377205,"123 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
+2,John Doe,john.doe@example.com,9606377206,"124 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
+3,John Doe,john.doe@example.com,9606377207,"125 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
+4,John Doe,john.doe@example.com,9606377208,"126 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
+5,John Doe,john.doe@example.com,9606377209,"127 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
+6,John Doe,john.doe@example.com,9606377210,"128 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
+7,John Doe,john.doe@example.com,9606377211,"129 Main St, Cityville",xyz,abc,workin,fbgjkd,2022-01-01T12:00:00Z,2022-01-01T12:30:00Z
