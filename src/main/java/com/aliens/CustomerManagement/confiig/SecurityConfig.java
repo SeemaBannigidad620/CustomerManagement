@@ -1,4 +1,4 @@
-package com.aliens.CustomerManagement.congif;
+package com.aliens.CustomerManagement.confiig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
