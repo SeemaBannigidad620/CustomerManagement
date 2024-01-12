@@ -63,7 +63,6 @@ public class CustomerController {
         try {
             List<Customer> customers = customerService.readCustomersFromFile(file);
 
-            // Validate the list of customers
             List<Customer> existingCustomer = validationUtils.validateCustomersForUpdate(customers);
 
             List<Customer> updatedCustomers = customerService.bulkUpdate(existingCustomer);

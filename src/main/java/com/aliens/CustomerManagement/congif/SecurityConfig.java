@@ -29,12 +29,12 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(authorize -> authorize
-                        .requestMatchers("/v1/api/customers/").authenticated()
+                        .requestMatchers("/v1/api/customers/findAll").authenticated()
                         .anyRequest().permitAll()
                 )
                 .headers(headers -> headers.disable())
                 .formLogin(formlogin -> formlogin.disable())
-                .logout(logout ->logout.disable())
+                .logout(logout -> logout.disable())
                 .csrf(csrf -> csrf.disable())
                 .build();
     }
