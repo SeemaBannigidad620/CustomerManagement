@@ -35,7 +35,7 @@ public class CustomerService {
             customerRepository.save(customer);
             return ResponseEntity.status(HttpStatus.CREATED).body(customer);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
 
@@ -57,12 +57,13 @@ public class CustomerService {
         return customer;
     }
 
-    public void deleteCustomer(long id) {
+    public ResponseEntity<String> deleteCustomer(long id) {
         Customer existingCustomer = customerRepository.findByCustomerId(id);
         if (ObjectUtils.isEmpty(existingCustomer)) {
             throw new CustomerNotFoundException(HttpStatus.NOT_FOUND, "Customer Does Not Exists");
         } else {
             customerRepository.delete(existingCustomer);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }
 

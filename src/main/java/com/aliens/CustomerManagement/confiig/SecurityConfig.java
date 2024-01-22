@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -29,9 +31,10 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(authorize -> authorize
-                        .requestMatchers("/v1/api/customers/findAll").authenticated()
+                        .requestMatchers("/v1/api/customers/{id}").authenticated()
                         .anyRequest().permitAll()
                 )
+                .httpBasic(withDefaults()) // Enable Basic Authentication
                 .headers(headers -> headers.disable())
                 .formLogin(formlogin -> formlogin.disable())
                 .logout(logout -> logout.disable())

@@ -43,8 +43,8 @@ public class CustomerController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteCustomer(@PathVariable long id) {
-        customerService.deleteCustomer(id);
+    public ResponseEntity<String> deleteCustomer(@PathVariable long id) {
+        return customerService.deleteCustomer(id);
     }
 
     @PostMapping("/bulk-load")
@@ -65,11 +65,13 @@ public class CustomerController {
 
             List<Customer> existingCustomer = validationUtils.validateCustomersForUpdate(customers);
 
-            List<Customer> updatedCustomers = customerService.bulkUpdate(existingCustomer);
+            if (!ObjectUtils.isEmpty(existingCustomer)) {
+                customerService.bulkUpdate(existingCustomer);
+            }
 
-            return new ResponseEntity<>("Bulk update successful. ", HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>("Validation error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+        return new ResponseEntity<>("Bulk update successful. ", HttpStatus.OK);
     }
 }
